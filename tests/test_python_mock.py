@@ -1,4 +1,4 @@
-from mock_demo import __version__
+from python_mock import __version__
 
 
 def test_version():
