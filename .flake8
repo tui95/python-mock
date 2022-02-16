@@ -1,0 +1,4 @@
+[flake8]
+# Reference https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html#flake8
+max-line-length = 120
+extend-ignore = E203

@@ -14,3 +14,12 @@ pre-commit = "^2.17.0"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.black]
+# Reference https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-format
+line-length = 120
+target-version = ["py39"]
+
+[tool.isort]
+# Reference https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html#isort
+profile = "black"
