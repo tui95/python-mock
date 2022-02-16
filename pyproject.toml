@@ -8,7 +8,7 @@ authors = ["Khemmatat Theanvanichpant <khemmatat.thean@gmail.com>"]
 python = "^3.9"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.0.0"
+pytest = "^7.0.1"
 pre-commit = "^2.17.0"
 
 [build-system]
