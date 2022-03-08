@@ -11,6 +11,7 @@ from python_mock.where_to_patch.complicate.module_import.province.area_service i
 )
 
 
+@pytest.mark.slow
 @pytest.mark.xfail(reason="No service account")
 def test_get_province_area_map_should_fail_due_to_no_service_account() -> None:
     get_province_area_map()
