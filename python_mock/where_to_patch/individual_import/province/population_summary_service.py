@@ -18,7 +18,7 @@ def calculate_population_density(population: int, area: float) -> float:
     return population / area
 
 
-def get_province_population_summary_map():
+def get_province_population_summary_map() -> dict[str, ProvincePopulationSummary]:
     province_area_map = get_province_area_map()
     province_population_map = get_province_population_map()
 
