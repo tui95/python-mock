@@ -22,13 +22,13 @@ def get_province_population_summary_map() -> dict[str, ProvincePopulationSummary
     province_area_map = get_province_area_map()
     province_population_map = get_province_population_map()
 
-    province_population_density_map = {}
+    province_population_summary_map = {}
     for province, area in province_area_map.items():
         population = province_population_map.get(province)
         population_density = calculate_population_density(population=population, area=area)
-        province_population_density_map[province] = ProvincePopulationSummary(
+        province_population_summary_map[province] = ProvincePopulationSummary(
             population=population,
             area=area,
             population_density=population_density,
         )
-    return province_population_density_map
+    return province_population_summary_map
