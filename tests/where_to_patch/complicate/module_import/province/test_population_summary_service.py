@@ -4,13 +4,13 @@ import pytest
 from google.cloud import bigquery
 from pytest_mock import MockerFixture
 
-from python_mock.where_to_patch.module_import.province import (
+from python_mock.where_to_patch.complicate.module_import.province import (
     area_service as area_service_module,
 )
-from python_mock.where_to_patch.module_import.province import (
+from python_mock.where_to_patch.complicate.module_import.province import (
     population_service as population_service_module,
 )
-from python_mock.where_to_patch.module_import.province.population_summary_service import (
+from python_mock.where_to_patch.complicate.module_import.province.population_summary_service import (
     ProvincePopulationSummary,
     get_province_population_summary_map,
 )

@@ -1,9 +1,9 @@
 from typing import TypedDict
 
-from python_mock.where_to_patch.individual_import.province.area_service import (
+from python_mock.where_to_patch.complicate.individual_import.province.area_service import (
     get_province_area_map,
 )
-from python_mock.where_to_patch.individual_import.province.population_service import (
+from python_mock.where_to_patch.complicate.individual_import.province.population_service import (
     get_province_population_map,
 )
 
