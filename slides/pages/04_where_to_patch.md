@@ -26,16 +26,6 @@ hideInToc: true
 
 <div class="grid grid-cols-2 gap-x-4 pt-4">
 
-```python
-# magic.py
-import random
-
-def get_magic_number() -> int:
-    return random.randint(1, 100)
-```
-
-<div>
-
 ```python {all|3,9|all}
 # main.py
 import string
@@ -49,7 +39,13 @@ def get_magic_char() -> str:
     return chars[magic_number % len(chars)]
 ```
 
-</div>
+```python
+# magic.py
+import random
+
+def get_magic_number() -> int:
+    return random.randint(1, 100)
+```
 
 </div>
 
@@ -75,16 +71,6 @@ def test_get_magic_char() -> None:
 
 <div class="grid grid-cols-2 gap-x-4 pt-4">
 
-```python
-# magic.py
-import random
-
-def get_magic_number() -> int:
-    return random.randint(1, 100)
-```
-
-<div>
-
 ```python {all|3,9|all}
 # main.py
 import string
@@ -98,7 +84,13 @@ def get_magic_char() -> str:
     return chars[magic_number % len(chars)]
 ```
 
-</div>
+```python
+# magic.py
+import random
+
+def get_magic_number() -> int:
+    return random.randint(1, 100)
+```
 
 </div>
 

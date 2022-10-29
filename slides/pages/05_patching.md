@@ -102,16 +102,6 @@ hideInToc: true
 <div class="grid grid-cols-2 gap-x-4 pt-4">
 
 ```python
-# magic.py
-import random
-
-def get_magic_number() -> int:
-    return random.randint(1, 100)
-```
-
-<div>
-
-```python
 # main.py
 import string
 import magic
@@ -124,7 +114,13 @@ def get_magic_char() -> str:
     return chars[magic_number % len(chars)]
 ```
 
-</div>
+```python
+# magic.py
+import random
+
+def get_magic_number() -> int:
+    return random.randint(1, 100)
+```
 
 </div>
 
@@ -165,15 +161,7 @@ hideInToc: true
 
 <div class="grid gap-y-4">
 
-```python
-# db.py
-from decimal import Decimal
-
-def get_book_by_name(name: str) -> Optional[Book]:
-    return Book.objects.filter(name=name).first()
-```
-
-```python
+```python {all|3,8|all}
 # main.py
 from decimal import Decimal
 import db
@@ -185,6 +173,12 @@ def get_prices(book_names: list[str]) -> dict[str, Decimal]:
         price = book.price if book else None
         price_map[name] = date_published
     return price_map
+```
+
+```python
+# db.py
+def get_book_by_name(name: str) -> Optional[Book]:
+    return Book.objects.filter(name=name).first()
 ```
 
 </div>
@@ -211,7 +205,7 @@ def test_get_prices() -> None:
         actual = get_prices(["Foo", "Bar"])
         expected = {
             "Foo": 10,
-            "Bar: None,
+            "Bar": None,
         }
         assert actual == expected
 ```
@@ -264,7 +258,7 @@ hideInToc: true
 
 <div class="grid gap-y-4">
 
-```python
+```python {all|7|all}
 # main.py
 def get_magic_text(length: int) -> str:
     lookup_chars = string.ascii_letters + string.punctuation
