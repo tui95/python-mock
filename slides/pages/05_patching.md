@@ -293,23 +293,61 @@ hideInToc: true
 
 patch attribute
 
-<div class="grid gap-y-4">
+<div class="grid grid-cols-2 gap-x-4">
+
+```python {all|2,6|all}
+# utils.py
+import constants
+
+def generate_apps_markdown_entry() -> str:
+    entries = ["Apps\n"]
+    for app in constants.APPS:
+        entries.append(f"- {app}\n")
+    return "".join(entries)
+```
 
 ```python
-# constant.py
-A = 20
+# constants.py
+APPS = [
+    "core",
+    "master_data",
+    "site_settings",
+    "drawing",
+    "visualization",
+    "planning",
+    "evaluation",
+    "summary",
+    "note",
+    "management",
+    "users",
+    "tracking",
+    "issues",
+]
 ```
-
-<v-click>
-
-```python {all|4|all}
-import constant
-
-def test_something() -> None:
-    with mock.patch.object(constant, "A", new=10):
-        assert constant.A == 10
-```
-
-</v-click>
 
 </div>
+
+---
+hideInToc: true
+---
+# `new` (continue)
+
+```python {all|2,15|all}
+import textwrap
+import constants
+from utils import generate_apps_markdown_entry
+
+def test_generate_apps_markdown_entry() -> None:
+    # \ to start with the string and avoid the first newline
+    expected = textwrap.dedent(
+        """\
+        Apps
+        - foo
+        - bar
+        """
+    )
+
+    with mock.patch.object(constants, "A", new=["foo", "bar"]):
+        actual = generate_apps_markdown_entry()
+        assert actual == expected
+```
