@@ -58,5 +58,9 @@ src: pages/09_limitation_of_mock.md
 ---
 
 ---
-src: pages/10_resources.md
+src: pages/10_libraries.md
+---
+
+---
+src: pages/11_resources.md
 ---
