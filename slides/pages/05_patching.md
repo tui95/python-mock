@@ -56,30 +56,99 @@ hideInToc: true
 3. class decorator
 4. inline (need to manually call method to start and stop the mocking)
 
+---
+hideInToc: true
+---
+
+### 1. Context manager
+```python
+with patch.object(some_module, "some_function") as mock_some_function:
+    ...
+```
+
 <v-click>
 
-For more in-depth, watch the video [“Demystifying the patch function”](https://www.youtube.com/watch?v=ww1UsGZV8fQ)
+### 2. Function decorator
+
+```python
+@patch.object(some_module, "some_function")
+@patch.object(some_module, "another_function")
+def test_foo(another_function: mock.MagicMock, some_function: mock.MagicMock) -> None:
+    ...
+```
 
 </v-click>
 
 <v-click>
 
+### 3. Class decorator
+
+```python
+@patch.object(some_module, "some_function")
+class TestCase:
+    def test_foo(some_function: mock.MagicMock) -> None:
+        ...
+
+    def test_bar(some_function: mock.MagicMock) -> None:
+        ...
+```
+
+</v-click>
+
+---
+hideInToc: true
+---
+
+### 4. Inline (need to manually call method to start and stop the mocking)
+
+<div class="pt-4">
+
+#### `pytest`
+```python
+def test_foo(request: pytest.FixtureRequest) -> None:
+    patcher = patch.object(some_module, "some_function")
+    patcher.start()
+    request.addfinalizer(patcher.stop)
+    ...
+```
+
+<v-click>
+
+#### `unittest`
+```python
+class TestCase(unittest.TestCase):
+    def setUp(self) -> None:
+        patcher = patch.object(some_module, "some_function")
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def test_foo(self) -> None:
+        ...
+```
+
+</v-click>
+
+</div>
+
+---
+hideInToc: true
+---
+
 ## `pytest-mock`
 
-```python {all|6,7|all}
+```python {all|7,8|all}
 # test_main.py
 from unittest import mock
+from pytest_mock import MockerFixture
 import magic
 from main import get_magic_char
 
-def test_get_magic_char(mocker) -> str:
+def test_get_magic_char(mocker: MockerFixture) -> str:
     mocker.patch.object(magic, "get_magic_number", return_value=2)
     actual = get_magic_char()
     expected = "c"
     assert actual == expected
 ```
-
-</v-click>
 
 ---
 hideInToc: true
