@@ -166,7 +166,7 @@ hideInToc: true
 from decimal import Decimal
 import db
 
-def get_prices(book_names: list[str]) -> dict[str, Decimal]:
+def get_book_prices(book_names: list[str]) -> dict[str, Decimal]:
     price_map = {}
     for name in book_names:
         book = db.get_book_by_name(book_name)
@@ -194,15 +194,15 @@ hideInToc: true
 # test_main.py
 from unittest import mock
 import db
-from main import get_prices
+from main import get_book_prices
 
-def test_get_prices() -> None:
+def test_get_book_prices() -> None:
     name_to_book = {"Foo": Book(price=10)}
     def side_effect(book_name):
         return name_to_book.get(book_name)
 
     with mock.patch.object(db, "get_book_by_name", side_effect=side_effect):
-        actual = get_prices(["Foo", "Bar"])
+        actual = get_book_prices(["Foo", "Bar"])
         expected = {
             "Foo": 10,
             "Bar": None,
