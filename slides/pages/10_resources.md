@@ -4,6 +4,7 @@
 
 - https://docs.python.org/3/library/unittest.mock.html#where-to-patch
 - https://docs.python.org/3/library/unittest.mock-examples.html
+- https://docs.python.org/3/library/unittest.mock.html#autospeccing
 
 ## Video
 

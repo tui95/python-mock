@@ -50,9 +50,13 @@ src: pages/07_debugging.md
 ---
 
 ---
-src: pages/08_limitation_of_mock.md
+src: pages/08_speccing.md
 ---
 
 ---
-src: pages/09_resources.md
+src: pages/09_limitation_of_mock.md
+---
+
+---
+src: pages/10_resources.md
 ---
