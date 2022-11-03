@@ -73,7 +73,7 @@ import magic
 from main import get_magic_char
 
 def test_get_magic_char(mocker) -> str:
-    mocker.patch.object(magic "get_magic_number", return_value=2)
+    mocker.patch.object(magic, "get_magic_number", return_value=2)
     actual = get_magic_char()
     expected = "c"
     assert actual == expected
