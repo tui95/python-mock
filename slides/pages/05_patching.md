@@ -416,7 +416,7 @@ def test_generate_apps_markdown_entry() -> None:
         """
     )
 
-    with mock.patch.object(constants, "A", new=["foo", "bar"]):
+    with mock.patch.object(constants, "APPS", new=["foo", "bar"]):
         actual = generate_apps_markdown_entry()
         assert actual == expected
 ```
